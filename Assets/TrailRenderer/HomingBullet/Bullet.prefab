@@ -246,4 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _normalizedTime: 2
   _correctionStrength: 5
+  _isChangeNormalized: 0
