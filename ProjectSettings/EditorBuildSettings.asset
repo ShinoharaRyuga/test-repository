@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/TrailRenderer/HomingBullet/2DTRScene.unity
+    guid: fd13a940fd7dec748852ec0332e77868
   m_configObjects: {}

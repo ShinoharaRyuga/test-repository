@@ -9,13 +9,16 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] int _firstEnemyNumber = 10;
     [SerializeField] float _waitTime = 1f;
     [SerializeField] float _radius = 3f;
-
+    [SerializeField] bool _isGenerate = true;
     static List<Transform> _enemies = new List<Transform>();
 
     private void Start()
     {
         SetUp();
-        StartCoroutine(Generator());
+        if (_isGenerate)
+        {
+            StartCoroutine(Generator());
+        }
     }
 
     private void OnDrawGizmos()
@@ -34,6 +37,11 @@ public class EnemyGenerator : MonoBehaviour
 
         return null;
 
+    }
+
+    public static void RemoveEnemy(Transform enemy)
+    {
+        _enemies.Remove(enemy);
     }
 
     IEnumerator Generator()
