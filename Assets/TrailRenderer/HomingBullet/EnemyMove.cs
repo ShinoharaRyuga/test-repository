@@ -22,7 +22,7 @@ public class EnemyMove : MonoBehaviour
         {
             _isMove = false;
             _rb2D.velocity = Vector2.zero;
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.3f);
         }
     }
 

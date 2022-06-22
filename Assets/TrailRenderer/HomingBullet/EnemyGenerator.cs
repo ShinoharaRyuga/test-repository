@@ -1,14 +1,20 @@
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
     [SerializeField] GameObject _enemy = default;
+    [SerializeField] int _firstEnemyNumber = 10;
     [SerializeField] float _waitTime = 1f;
     [SerializeField] float _radius = 3f;
 
+    static List<Transform> _enemies = new List<Transform>();
+
     private void Start()
     {
+        SetUp();
         StartCoroutine(Generator());
     }
 
@@ -18,12 +24,25 @@ public class EnemyGenerator : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _radius);
     }
 
+    public static Transform GetRamdomEnemy()
+    {
+        if (0 < _enemies.Count)
+        {
+            var index = Random.Range(0, _enemies.Count);
+            return _enemies[index];
+        }
+
+        return null;
+
+    }
+
     IEnumerator Generator()
     {
         while (true)
         {
             yield return new WaitForSeconds(_waitTime);
-            Instantiate(_enemy, GetSpawnPoint(), Quaternion.identity);
+            var go = Instantiate(_enemy, GetSpawnPoint(), Quaternion.identity);
+            _enemies.Add(go.transform);
         }
     }
 
@@ -34,5 +53,14 @@ public class EnemyGenerator : MonoBehaviour
         var y = _radius * Mathf.Sin(rand);
 
         return new Vector2(x, y);
+    }
+
+    void SetUp()
+    {
+        for (var i = 0; i < _firstEnemyNumber; i++)
+        {
+            var go = Instantiate(_enemy, GetSpawnPoint(), Quaternion.identity);
+            _enemies.Add(go.transform);
+        }
     }
 }
