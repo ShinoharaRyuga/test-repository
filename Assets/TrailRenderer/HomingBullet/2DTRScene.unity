@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 13058085829824335, guid: 6b66e0d10aff9814886f6e53bc0e2857, type: 3}
-  _firstBulletNumber: 5
+  _firstBulletNumber: 10
   _waitTime: 0.3
   _isGenerate: 0
 --- !u!4 &27678806

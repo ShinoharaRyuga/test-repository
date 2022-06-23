@@ -61,6 +61,8 @@ public class Bullet : MonoBehaviour
             _dirction = (_dirction + cor);
             transform.position += _dirction * _speed * Time.deltaTime;
         }
+
+
     }
 
     /// <summary>ˆê’èŠÔŒã‚Éİ’è‚µ‚½ˆ—‚ğs‚¤ </summary>
