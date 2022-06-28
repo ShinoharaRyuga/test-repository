@@ -23,7 +23,7 @@ public class Laser2Manager : MonoBehaviour
         }
         else if(_reflectPoints.Length - 1 <= _currentPoint)
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2f);
         }
 
     }
